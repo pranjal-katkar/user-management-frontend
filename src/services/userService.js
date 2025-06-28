@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://user-management-backend-bqat.onrender.com";
+const BASE_URL = "https://user-management-backend-bqat.onrender.com/api/users";
 
 export const getUsers = () => axios.get(BASE_URL);
 export const createUser = (user) => axios.post(BASE_URL, user);
