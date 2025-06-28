@@ -1,8 +1,3 @@
-Absolutely! Here's your clean, single-block **`README.md` for the frontend** (React app) — copy-paste this directly into your frontend GitHub repo:
-
----
-
-```markdown
 # 🧑‍💻 User Management Frontend
 
 This is the **React frontend** for the full-stack User Management System. It consumes a Spring Boot + PostgreSQL REST API and provides a simple UI for managing users.
