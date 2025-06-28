@@ -1,14 +1,8 @@
 import axios from "axios";
 
-const API_URL = `${process.env.REACT_APP_API_BASE_URL}/api/users`;
+const BASE_URL = "http://localhost:8080/api/users";
 
-export const getUsers = () => axios.get(API_URL);
-
-export const createUser = (user) => axios.post(API_URL, user);
-
-export const updateUser = (id, user) => axios.put(`${API_URL}/${id}`, user);
-
-export const deleteUser = (id) => axios.delete(`${API_URL}/${id}`);
-
-export const searchUsers = (query) =>
-  axios.get(`${API_URL}/search`, { params: { query } });
+export const getUsers = () => axios.get(BASE_URL);
+export const createUser = (user) => axios.post(BASE_URL, user);
+export const updateUser = (id, user) => axios.put(`${BASE_URL}/${id}`, user);
+export const deleteUser = (id) => axios.delete(`${BASE_URL}/${id}`);

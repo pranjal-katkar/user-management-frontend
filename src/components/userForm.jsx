@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./UserForm.css";
 
 const UserForm = ({ onSubmit, initialData = {} }) => {
   const [name, setName] = useState("");
@@ -19,13 +20,14 @@ const UserForm = ({ onSubmit, initialData = {} }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ marginBottom: "1rem" }}>
+    <form onSubmit={handleSubmit} className="user-form">
       <input
         type="text"
         placeholder="Enter name"
         value={name}
         onChange={(e) => setName(e.target.value)}
         required
+        className="user-input"
       />
       <input
         type="email"
@@ -33,8 +35,11 @@ const UserForm = ({ onSubmit, initialData = {} }) => {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
+        className="user-input"
       />
-      <button type="submit">Save</button>
+      <button type="submit" className="submit-btn">
+        Save
+      </button>
     </form>
   );
 };
