@@ -46,8 +46,9 @@ function App() {
           err.response.data?.message?.toLowerCase().includes("email"))
       ) {
         toast.error("Email already exists");
+      } else {
         console.error("Error saving user:", err);
-        toast.error("Email exists");
+        toast.error("Something went wrong");
       }
     }
   };
@@ -68,7 +69,7 @@ function App() {
       <h1>User Management System</h1>
       <UserForm onSubmit={handleSubmit} initialData={editUser} />
       <UserList users={users} onEdit={setEditUser} onDelete={handleDelete} />
-      <ToastContainer /> {/* ✅ Add this once */}
+      <ToastContainer position="top-center" autoClose={3000} />
     </div>
   );
 }
