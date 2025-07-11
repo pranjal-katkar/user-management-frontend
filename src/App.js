@@ -40,16 +40,14 @@ function App() {
       }
       fetchUsers();
     } catch (err) {
-      // ✅ Check if backend sent duplicate email error
       if (
         err.response &&
         (err.response.status === 409 ||
           err.response.data?.message?.toLowerCase().includes("email"))
       ) {
-        toast.error("Email already exists"); // ✅ Display error
-      } else {
+        toast.error("Email already exists");
         console.error("Error saving user:", err);
-        toast.error("Something went wrong");
+        toast.error("Email exists");
       }
     }
   };
