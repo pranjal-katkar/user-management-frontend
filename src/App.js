@@ -7,6 +7,8 @@ import {
   updateUser,
   deleteUser,
 } from "./services/userService";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -18,6 +20,7 @@ function App() {
       setUsers(res.data);
     } catch (err) {
       console.error("Error fetching users:", err);
+      toast.error("Failed to fetch users");
     }
   };
 
@@ -29,22 +32,36 @@ function App() {
     try {
       if (editUser) {
         await updateUser(editUser.id, user);
+        toast.success("User updated");
         setEditUser(null);
       } else {
         await createUser(user);
+        toast.success("User created");
       }
       fetchUsers();
     } catch (err) {
-      console.error("Error saving user:", err);
+      // ✅ Check if backend sent duplicate email error
+      if (
+        err.response &&
+        (err.response.status === 409 ||
+          err.response.data?.message?.toLowerCase().includes("email"))
+      ) {
+        toast.error("Email already exists"); // ✅ Display error
+      } else {
+        console.error("Error saving user:", err);
+        toast.error("Something went wrong");
+      }
     }
   };
 
   const handleDelete = async (id) => {
     try {
       await deleteUser(id);
+      toast.success("User deleted");
       fetchUsers();
     } catch (err) {
       console.error("Error deleting user:", err);
+      toast.error("Failed to delete user");
     }
   };
 
@@ -53,6 +70,7 @@ function App() {
       <h1>User Management System</h1>
       <UserForm onSubmit={handleSubmit} initialData={editUser} />
       <UserList users={users} onEdit={setEditUser} onDelete={handleDelete} />
+      <ToastContainer /> {/* ✅ Add this once */}
     </div>
   );
 }
