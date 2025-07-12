@@ -48,7 +48,7 @@ function App() {
         toast.error("Email already exists");
       } else {
         console.error("Error saving user:", err);
-        toast.error("Something went wrong");
+        //toast.error("Something went wrong");
       }
     }
   };
