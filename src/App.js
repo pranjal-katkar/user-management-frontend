@@ -40,12 +40,13 @@ function App() {
       }
       fetchUsers();
     } catch (err) {
+      // ✅ Check if backend sent duplicate email error
       if (
         err.response &&
         (err.response.status === 409 ||
           err.response.data?.message?.toLowerCase().includes("email"))
       ) {
-        toast.error("Email already exists");
+        toast.error("Email already exists"); // ✅ Display error
       } else {
         console.error("Error saving user:", err);
         toast.error("Something went wrong");
@@ -69,7 +70,7 @@ function App() {
       <h1>User Management System</h1>
       <UserForm onSubmit={handleSubmit} initialData={editUser} />
       <UserList users={users} onEdit={setEditUser} onDelete={handleDelete} />
-      <ToastContainer position="top-center" autoClose={3000} />
+      <ToastContainer /> {/* ✅ Add this once */}
     </div>
   );
 }
