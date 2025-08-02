@@ -1,50 +1,67 @@
 .user-list {
   list-style-type: none;
   padding: 0;
+  margin-top: 1rem;
 }
 
 .user-list-item {
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  margin-bottom: 12px;
+  padding: 16px 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.user-list-item:hover {
+  transform: scale(1.01);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .user-info {
   flex: 1;
+  text-align: left;
   min-width: 200px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1f2937;
 }
 
 .user-actions {
   display: flex;
-  gap: 8px;
+  gap: 10px;
+  margin-top: 10px;
 }
 
 .edit-btn,
 .delete-btn {
-  padding: 6px 12px;
+  padding: 8px 16px;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .edit-btn {
-  background-color: #2196f3;
+  background-color: #415a77;
 }
 
 .edit-btn:hover {
-  background-color: #1976d2;
+  background-color: #1b263b;
 }
 
 .delete-btn {
-  background-color: #f44336;
+  background-color: #bf0436;
 }
 
 .delete-btn:hover {
-  background-color: #d32f2f;
+  background-color: #a60321;
 }

@@ -68,8 +68,23 @@ function App() {
   };
 
   return (
-    <div style={{ padding: "2rem" }}>
-      <h1>User Management System</h1>
+    <div
+      style={{
+        alignItems: "center",
+        padding: "2rem 2rem 3rem", // less top padding, more bottom padding
+        margin: "3rem auto",
+        maxWidth: "640px",
+        borderRadius: "16px",
+        backgroundColor: "#e5e0de",
+        boxShadow: "0 10px 30px rgba(0,0,0,0.05)",
+        textAlign: "center",
+        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+        color: "#111827",
+      }}
+    >
+      <h1 style={{ marginBottom: "1.5rem", fontSize: "2rem", fontWeight: 600 }}>
+        User Management System
+      </h1>
       <UserForm onSubmit={handleSubmit} initialData={editUser} />
       <UserList users={users} onEdit={setEditUser} onDelete={handleDelete} />
       <ToastContainer /> {/* ✅ Add this once */}
